@@ -1,0 +1,11 @@
+#%RAML 1.0
+title: api-cicd-validation-example-who-poc
+baseUri: https://{domain}/api
+version: v1
+/validation:
+  get:
+    description: This call is to validate the CI/CD process
+    responses:
+      200:
+        body:
+          application/json:

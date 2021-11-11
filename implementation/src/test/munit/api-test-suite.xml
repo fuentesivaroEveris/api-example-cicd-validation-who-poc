@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="api-test-suite.xml" />
+	<munit:test name="api-test-suite-get:\validation:api-cicd-example-who-poc-configTest" doc:id="bda5aaa3-5750-4b93-b812-12834d3d0213" description="Test">
+		<munit:behavior >
+			<set-payload value='#[payload]' doc:name="Set Payload" doc:id="9393e33b-fa02-44c3-bcd3-2a2ac9b42fc2" />
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\validation:api-cicd-example-who-poc-config" doc:id="87f0f78f-2d5a-46ad-9f27-8fbf91d33d4d" name="get:\validation:api-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-equals doc:name="Assert equals" doc:id="9eb37541-3a33-46b9-aef4-c33ad1613035" actual='#[payload]' expected='#[{
+&#10;  status: "200",
+&#10;  validationMessage: "Deployment validation"
+&#10;}]'/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

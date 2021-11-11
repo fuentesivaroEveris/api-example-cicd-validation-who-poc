@@ -1,0 +1,21 @@
+# File: azure-pipelines.yaml
+# This is the top-level YAML file that will orchestrate the pipeline
+
+trigger:
+- develop
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  jobs:
+  - job: Build
+    pool:
+      name: Hosted VS2017
+      demands:
+      - msbuild
+      - visualstudio
+      - vstest
+    steps:
+    - task: NuGetToolInstaller@1 

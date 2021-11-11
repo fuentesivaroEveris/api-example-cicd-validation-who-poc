@@ -1,0 +1,24 @@
+#%RAML 1.0
+title: api-cicd-validation-example-who-poc
+
+baseUri: https://{domain}/api
+version: v1
+
+traits:
+  client-id-required: !include exchange_modules/f0280dae-3bd2-4d24-b347-3fde9546ba11/client-id-required/1.0.0/client-id-required.raml
+  error-responses: !include exchange_modules/f0280dae-3bd2-4d24-b347-3fde9546ba11/error-responses/1.0.0/error-responses.raml
+
+types:
+  validationType: !include type/validationDataType.raml
+
+/validation:
+  get:
+    is: [client-id-required, error-responses]
+    description: This call is to validate the CI/CD process
+    responses:
+      200:
+        body:
+          application/json:
+            type: validationType
+    
+        

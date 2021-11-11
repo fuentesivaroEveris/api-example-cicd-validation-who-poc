@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
+    <apikit:config name="healthcheck-config" api="api\healthcheck.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+	<apikit:config name="api-config" api="resource::3f50a308-b636-4db8-84be-c62ad0c4dd31:api-cicd-validation-example-who-poc:1.2.12:raml:zip:api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+	<configuration doc:name="Configuration" doc:id="69deda10-14cd-43be-af70-f529b48f4359" defaultErrorHandler-ref="Global_Error_Handler" />
+	<configuration-properties doc:name="Configuration properties" doc:id="8f76d0d4-1d6c-4cb8-a8a3-6764a1ed61c0" file="config\properties-global.yaml" />
+	<http:listener-config name="HTTP_Listener_config_standard" doc:name="HTTP Listener config" doc:id="e1a5ae2a-1333-4c14-9977-de974dea1f97" >
+		<http:listener-connection host="0.0.0.0" port="${standard.port.external}" />
+	</http:listener-config>
+	<global-property doc:name="Global Property" doc:id="dace77e9-f1d5-487e-8e1c-1f3cc88a7873" name="mule.env" value="dev" />
+	<configuration-properties doc:name="Configuration properties" doc:id="913937ae-af39-49c5-a67f-52566f2bf6ff" file="config\properties-${mule.env}.yaml" />
+</mule>
+

@@ -1,0 +1,14 @@
+apiPath: "/api/v1/*"
+
+autodiscoveryID : ${AUTODISCOVERY_ID}
+
+standard:
+   port:
+      external: "8081"
+      internal: "8091"
+secure:
+   port:
+      external: "8082"
+      internal: "8092"
+  
+
