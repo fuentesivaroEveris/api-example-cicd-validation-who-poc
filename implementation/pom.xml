@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>3f50a308-b636-4db8-84be-c62ad0c4dd31</groupId>
-	<artifactId>api-example-cicd-validation-who-poc-dev</artifactId>
+	<artifactId>api-example-cicd-validation-who-poc</artifactId>
 	<version>1.0.8</version>
 	<packaging>mule-application</packaging>
 
-	<name>api-example-cicd-validation-who-poc-dev</name>
+	<name>api-example-cicd-validation-who-poc</name>
 	<parent>
 		<groupId>3f50a308-b636-4db8-84be-c62ad0c4dd31</groupId>
 		<artifactId>mule-parent</artifactId>
