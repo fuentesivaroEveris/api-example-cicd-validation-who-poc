@@ -14,7 +14,7 @@ http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/
 	<configuration doc:name="Configuration" doc:id="69deda10-14cd-43be-af70-f529b48f4359" defaultErrorHandler-ref="Global_Error_Handler" />
 	<configuration-properties doc:name="Configuration properties" doc:id="8f76d0d4-1d6c-4cb8-a8a3-6764a1ed61c0" file="config\properties-global.yaml" />
 	<http:listener-config name="HTTP_Listener_config_standard" doc:name="HTTP Listener config" doc:id="e1a5ae2a-1333-4c14-9977-de974dea1f97" >
-		<http:listener-connection host="0.0.0.0" port="${secure.port.internal}" >
+		<http:listener-connection host="0.0.0.0" port="${secure.port.internal}" protocol="HTTPS">
 			<tls:context >
 				<tls:trust-store insecure="true" />
 				<tls:key-store type="jks" path="config/keystore-validation-tool-who-dev.jks" alias="keystore-validation-tool-who-dev" keyPassword="whodev" password="whodev"/>
